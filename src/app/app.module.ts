@@ -1,11 +1,18 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { SearchComponent } from './components/search/search.component';
 import { ArtistComponent } from './components/artist/artist.component';
 import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
+import { ROUTES } from './app.routes';
+
+
+
 
 @NgModule({
   declarations: [
@@ -13,10 +20,12 @@ import { NavBarComponent } from './components/shared/nav-bar/nav-bar.component';
     HomeComponent,
     SearchComponent,
     ArtistComponent,
-    NavBarComponent
+    NavBarComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot(ROUTES, { useHash: true}),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
